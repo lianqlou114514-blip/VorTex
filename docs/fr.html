@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VorTex — Étude d’interface flottante Android</title>
+<meta name="description" content="Un prototype d’interface Android en Java pur, avec un menu flottant piloté par DSL. VorTex est une étude d’interface Android entièrement construite en Java, sans layouts XML. Elle réunit un écran de connexion, un accueil à deux onglets, un gestionnaire de ressources simulé, des réglages et une boule flottante qui se déploie en panneau complet. Le langage visuel s’inspire des panneaux flottants de style Bingxi (冰昔).">
+<meta name="keywords" content="clone UI Android, menu flottant, style Bingxi, Java pur, sans layout XML, UI pilotée par DSL, interface assistant de jeu, boule flottante, VorTex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lianqlou114514-blip.github.io/VorTex/fr.html">
+<link rel="alternate" hreflang="en" href="https://lianqlou114514-blip.github.io/VorTex/index.html">
+<link rel="alternate" hreflang="zh-CN" href="https://lianqlou114514-blip.github.io/VorTex/zh-CN.html">
+<link rel="alternate" hreflang="ja" href="https://lianqlou114514-blip.github.io/VorTex/ja.html">
+<link rel="alternate" hreflang="ko" href="https://lianqlou114514-blip.github.io/VorTex/ko.html">
+<link rel="alternate" hreflang="es" href="https://lianqlou114514-blip.github.io/VorTex/es.html">
+<link rel="alternate" hreflang="fr" href="https://lianqlou114514-blip.github.io/VorTex/fr.html">
+<link rel="alternate" hreflang="de" href="https://lianqlou114514-blip.github.io/VorTex/de.html">
+<link rel="alternate" hreflang="ru" href="https://lianqlou114514-blip.github.io/VorTex/ru.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lianqlou114514-blip.github.io/VorTex/pt-BR.html">
+<link rel="alternate" hreflang="x-default" href="https://lianqlou114514-blip.github.io/VorTex/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VorTex — Étude d’interface flottante Android">
+<meta property="og:description" content="Un prototype d’interface Android en Java pur, avec un menu flottant piloté par DSL.">
+<meta property="og:url" content="https://lianqlou114514-blip.github.io/VorTex/fr.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "VorTex",
+ "headline": "VorTex — Étude d’interface flottante Android",
+ "description": "VorTex est une étude d’interface Android entièrement construite en Java, sans layouts XML. Elle réunit un écran de connexion, un accueil à deux onglets, un gestionnaire de ressources simulé, des réglages et une boule flottante qui se déploie en panneau complet. Le langage visuel s’inspire des panneaux flottants de style Bingxi (冰昔).",
+ "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "Android 8.0+",
+ "softwareVersion": "1.0",
+ "inLanguage": [
+  "en",
+  "zh-CN",
+  "ja",
+  "ko",
+  "es",
+  "fr",
+  "de",
+  "ru",
+  "pt-BR"
+ ],
+ "author": {
+  "@type": "Person",
+  "name": "lianqlou114514-blip",
+  "url": "https://github.com/lianqlou114514-blip"
+ },
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "downloadUrl": "https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk",
+ "url": "https://lianqlou114514-blip.github.io/VorTex/fr.html",
+ "keywords": "clone UI Android, menu flottant, style Bingxi, Java pur, sans layout XML, UI pilotée par DSL, interface assistant de jeu, boule flottante, VorTex"
+}
+</script>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--dim:#9aa7b2;--acc:#2196f3;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+h1{font-size:2.1rem;margin:0 0 8px;letter-spacing:-.02em}h2{font-size:1.25rem;margin:36px 0 12px;color:var(--acc)}
+.tag{color:var(--dim);font-size:1.05rem;margin:0 0 18px}
+nav{font-size:.86rem;color:var(--dim);line-height:2}nav a{color:var(--acc);text-decoration:none;margin-right:10px}
+p{color:var(--fg)}.note{background:var(--card);border-left:3px solid var(--acc);padding:14px 18px;border-radius:0 8px 8px 0;color:var(--dim)}
+ul{padding-left:20px}li{margin:7px 0;color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.c b{color:var(--acc)}.c span{display:block;color:var(--dim);font-size:.9rem;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--dim)}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:8px 8px 8px 0}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:.88em;color:#8ec5ff}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--dim);font-size:.85rem}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>VorTex</h1>
+<p class="tag">Un prototype d’interface Android en Java pur, avec un menu flottant piloté par DSL.</p>
+<nav><a href="index.html">English</a> <a href="zh-CN.html">简体中文</a> <a href="ja.html">日本語</a> <a href="ko.html">한국어</a> <a href="es.html">Español</a> <a href="fr.html">Français</a> <a href="de.html">Deutsch</a> <a href="ru.html">Русский</a> <a href="pt-BR.html">Português (Brasil)</a></nav>
+</header>
+
+<p>VorTex est une étude d’interface Android entièrement construite en Java, sans layouts XML. Elle réunit un écran de connexion, un accueil à deux onglets, un gestionnaire de ressources simulé, des réglages et une boule flottante qui se déploie en panneau complet. Le langage visuel s’inspire des panneaux flottants de style Bingxi (冰昔).</p>
+<p class="note">VorTex est un prototype d’interface, pas un outil de jeu fonctionnel. Les interrupteurs écrivent seulement dans SharedPreferences, les barres de progression sont simulées par un timer et aucun code ne lit ni n’injecte d’autre application ou jeu.</p>
+
+<h2>Atouts</h2>
+<ul><li>Interface 100 % code — les vues sont instanciées en Java ; res/ ne contient que icônes, styles, animateurs et deux chaînes.</li><li>Morphing de la boule — une bille de 39dp devient un panneau de 357×263dp en 300 ms, avec glisser, inclinaison et pincement.</li><li>Menu piloté par DSL — DslConfig.DSL_TEXT décrit pages, onglets, cartes, interrupteurs, curseurs et boutons, interprétés en 12 catégories.</li><li>Système de mouvement — curseur de navigation animé, balayage entre onglets, transitions de Fragment, bulles de raccourci et notifications à l’écran.</li><li>Persistance — SharedPreferences conserve connexion, interrupteurs, curseurs, dernier onglet et progression de téléchargement simulée.</li><li>Zéro dépendance — pas d’AndroidX, aucune bibliothèque tierce, aucun appel réseau à l’exécution.</li></ul>
+
+<h2>Modules</h2>
+<div class="grid"><div class="c"><b>MainActivity</b><span>Connexion / dissociation, visibilité du mot de passe, icônes œil dessinées avec Canvas.</span></div><div class="c"><b>HomeActivity</b><span>Hôte à deux onglets avec curseur bleu animé et gestes de balayage.</span></div><div class="c"><b>HomeFragment</b><span>Carte d’annonce, lancement de la fenêtre flottante, accès aux ressources.</span></div><div class="c"><b>ResourceFragment</b><span>Onglets de catégorie, cartes, progression simulée, appliquer/désinstaller, dialogues.</span></div><div class="c"><b>SettingsFragment</b><span>Réglages groupés, switches teintés, lignes RippleDrawable.</span></div><div class="c"><b>FloatBallService</b><span>Moteur d’overlay de 1 600 lignes : morphing, parseur DSL, 12 catégories, raccourcis, notifications.</span></div></div>
+
+<h2>Spécification</h2>
+<table>
+<tr><th>Élément</th><th>Valeur</th></tr>
+<tr><td>Package</td><td><code>com.vortex.tool</code></td></tr>
+<tr><td>Language</td><td>Java 17</td></tr>
+<tr><td>minSdk / targetSdk</td><td>26 / 34</td></tr>
+<tr><td>Dependencies</td><td>Aucune</td></tr>
+<tr><td>APK</td><td>6.0 MB · v2 + v3 signed</td></tr>
+<tr><td>SHA-256</td><td><code>c484a40fa3eb79e3aaa1f5ef73253b06…</code></td></tr>
+</table>
+
+<h2>Téléchargement</h2>
+<p>Téléchargez l’APK signé, installez-le sur Android 8.0 ou plus, puis accordez l’autorisation de superposition depuis la carte d’accueil.</p>
+<a class="btn" href="https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk">Télécharger l’APK</a>
+<a class="btn" style="background:var(--card);border:1px solid var(--line)" href="https://github.com/lianqlou114514-blip/VorTex">Voir le code</a>
+
+<footer>Étude d’interface indépendante, sans lien avec un produit commercial.</footer>
+</div></body></html>

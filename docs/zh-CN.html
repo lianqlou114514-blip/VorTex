@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VorTex — 安卓悬浮面板 UI 习作</title>
+<meta name="description" content="一个纯 Java 编写、由 DSL 驱动的安卓悬浮菜单界面原型。 VorTex 是一个完全用 Java 代码搭建界面的 Android UI 项目，不使用 XML 布局。它包含登录页、双标签主页、模拟资源管理器、设置页，以及一枚可形变为完整功能面板的悬浮球。界面风格仿照冰昔类悬浮辅助工具的面板布局。">
+<meta name="keywords" content="安卓 UI 仿写, 悬浮窗菜单, 冰昔风格, 纯 Java 安卓, 无 XML 布局, DSL 界面, 游戏辅助界面, 悬浮球, AIDE 工程, VorTex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lianqlou114514-blip.github.io/VorTex/zh-CN.html">
+<link rel="alternate" hreflang="en" href="https://lianqlou114514-blip.github.io/VorTex/index.html">
+<link rel="alternate" hreflang="zh-CN" href="https://lianqlou114514-blip.github.io/VorTex/zh-CN.html">
+<link rel="alternate" hreflang="ja" href="https://lianqlou114514-blip.github.io/VorTex/ja.html">
+<link rel="alternate" hreflang="ko" href="https://lianqlou114514-blip.github.io/VorTex/ko.html">
+<link rel="alternate" hreflang="es" href="https://lianqlou114514-blip.github.io/VorTex/es.html">
+<link rel="alternate" hreflang="fr" href="https://lianqlou114514-blip.github.io/VorTex/fr.html">
+<link rel="alternate" hreflang="de" href="https://lianqlou114514-blip.github.io/VorTex/de.html">
+<link rel="alternate" hreflang="ru" href="https://lianqlou114514-blip.github.io/VorTex/ru.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lianqlou114514-blip.github.io/VorTex/pt-BR.html">
+<link rel="alternate" hreflang="x-default" href="https://lianqlou114514-blip.github.io/VorTex/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VorTex — 安卓悬浮面板 UI 习作">
+<meta property="og:description" content="一个纯 Java 编写、由 DSL 驱动的安卓悬浮菜单界面原型。">
+<meta property="og:url" content="https://lianqlou114514-blip.github.io/VorTex/zh-CN.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "VorTex",
+ "headline": "VorTex — 安卓悬浮面板 UI 习作",
+ "description": "VorTex 是一个完全用 Java 代码搭建界面的 Android UI 项目，不使用 XML 布局。它包含登录页、双标签主页、模拟资源管理器、设置页，以及一枚可形变为完整功能面板的悬浮球。界面风格仿照冰昔类悬浮辅助工具的面板布局。",
+ "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "Android 8.0+",
+ "softwareVersion": "1.0",
+ "inLanguage": [
+  "en",
+  "zh-CN",
+  "ja",
+  "ko",
+  "es",
+  "fr",
+  "de",
+  "ru",
+  "pt-BR"
+ ],
+ "author": {
+  "@type": "Person",
+  "name": "lianqlou114514-blip",
+  "url": "https://github.com/lianqlou114514-blip"
+ },
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "downloadUrl": "https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk",
+ "url": "https://lianqlou114514-blip.github.io/VorTex/zh-CN.html",
+ "keywords": "安卓 UI 仿写, 悬浮窗菜单, 冰昔风格, 纯 Java 安卓, 无 XML 布局, DSL 界面, 游戏辅助界面, 悬浮球, AIDE 工程, VorTex"
+}
+</script>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--dim:#9aa7b2;--acc:#2196f3;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+h1{font-size:2.1rem;margin:0 0 8px;letter-spacing:-.02em}h2{font-size:1.25rem;margin:36px 0 12px;color:var(--acc)}
+.tag{color:var(--dim);font-size:1.05rem;margin:0 0 18px}
+nav{font-size:.86rem;color:var(--dim);line-height:2}nav a{color:var(--acc);text-decoration:none;margin-right:10px}
+p{color:var(--fg)}.note{background:var(--card);border-left:3px solid var(--acc);padding:14px 18px;border-radius:0 8px 8px 0;color:var(--dim)}
+ul{padding-left:20px}li{margin:7px 0;color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.c b{color:var(--acc)}.c span{display:block;color:var(--dim);font-size:.9rem;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--dim)}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:8px 8px 8px 0}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:.88em;color:#8ec5ff}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--dim);font-size:.85rem}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>VorTex</h1>
+<p class="tag">一个纯 Java 编写、由 DSL 驱动的安卓悬浮菜单界面原型。</p>
+<nav><a href="index.html">English</a> <a href="zh-CN.html">简体中文</a> <a href="ja.html">日本語</a> <a href="ko.html">한국어</a> <a href="es.html">Español</a> <a href="fr.html">Français</a> <a href="de.html">Deutsch</a> <a href="ru.html">Русский</a> <a href="pt-BR.html">Português (Brasil)</a></nav>
+</header>
+
+<p>VorTex 是一个完全用 Java 代码搭建界面的 Android UI 项目，不使用 XML 布局。它包含登录页、双标签主页、模拟资源管理器、设置页，以及一枚可形变为完整功能面板的悬浮球。界面风格仿照冰昔类悬浮辅助工具的面板布局。</p>
+<p class="note">VorTex 是界面原型，不是可用的游戏工具。开关只写入 SharedPreferences，下载进度由定时器模拟，代码不会读取或注入任何其他应用与游戏。</p>
+
+<h2>特性</h2>
+<ul><li>全代码构建 UI —— 所有 View 在 Java 中实例化，res/ 只放图标、样式、动画和两个字符串。</li><li>悬浮球形变 —— 39dp 小球在 300ms 内展开为 357×263dp 面板，支持拖拽、倾斜与捏合动画。</li><li>DSL 驱动菜单 —— DslConfig.DSL_TEXT 用一段简洁的中文 DSL 描述分页、标签、卡片、开关、拉条和按钮，运行时解析为 12 个分类。</li><li>动效体系 —— 底部导航滑块、左右滑动切页、Fragment 转场、快捷气泡与屏幕通知。</li><li>状态持久化 —— SharedPreferences 保存登录态、开关状态、拉条值、上次分页与模拟下载进度。</li><li>零依赖 —— 不用 AndroidX、不引第三方库、运行时不发起网络请求。</li></ul>
+
+<h2>模块</h2>
+<div class="grid"><div class="c"><b>MainActivity</b><span>登录 / 解绑页，密码可见性切换，眼睛图标由 Canvas 绘制。</span></div><div class="c"><b>HomeActivity</b><span>双标签容器，蓝色滑块动画与滑动切页手势。</span></div><div class="c"><b>HomeFragment</b><span>公告卡片、悬浮窗启动入口、资源管理入口。</span></div><div class="c"><b>ResourceFragment</b><span>分类标签、资源卡片、模拟下载进度、应用/卸载与详情弹窗。</span></div><div class="c"><b>SettingsFragment</b><span>分组设置项、着色 Switch、RippleDrawable 行。</span></div><div class="c"><b>FloatBallService</b><span>一千六百行的悬浮窗引擎：形变动画、DSL 解析、12 个分类、快捷键与通知。</span></div></div>
+
+<h2>规格</h2>
+<table>
+<tr><th>项目</th><th>值</th></tr>
+<tr><td>Package</td><td><code>com.vortex.tool</code></td></tr>
+<tr><td>Language</td><td>Java 17</td></tr>
+<tr><td>minSdk / targetSdk</td><td>26 / 34</td></tr>
+<tr><td>Dependencies</td><td>无</td></tr>
+<tr><td>APK</td><td>6.0 MB · v2 + v3 signed</td></tr>
+<tr><td>SHA-256</td><td><code>c484a40fa3eb79e3aaa1f5ef73253b06…</code></td></tr>
+</table>
+
+<h2>下载</h2>
+<p>下载已签名 APK，在 Android 8.0 及以上安装，并在首页卡片中授予悬浮窗权限。</p>
+<a class="btn" href="https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk">下载 APK</a>
+<a class="btn" style="background:var(--card);border:1px solid var(--line)" href="https://github.com/lianqlou114514-blip/VorTex">查看源码</a>
+
+<footer>独立的界面习作，与任何商业辅助产品无关联。</footer>
+</div></body></html>

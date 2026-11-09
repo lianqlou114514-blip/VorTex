@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lianqlou114514-blip.github.io/VorTex/sitemap.xml

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VorTex — 안드로이드 플로팅 패널 UI 연구</title>
+<meta name="description" content="DSL 기반 플로팅 메뉴를 담은 순수 Java 안드로이드 UI 프로토타입. VorTex는 XML 레이아웃 없이 모든 화면을 Java 코드로 구성한 안드로이드 UI 프로젝트입니다. 로그인 화면, 두 개의 탭 홈, 모의 리소스 관리자, 설정 화면, 그리고 전체 패널로 변형되는 플로팅 볼로 이루어져 있습니다. 빙시(Bingxi) 계열 플로팅 도구의 패널 구성을 참고했습니다.">
+<meta name="keywords" content="안드로이드 UI 클론, 플로팅 메뉴, 빙시 스타일, 순수 Java, XML 레이아웃 없음, DSL UI, 게임 보조 인터페이스, 플로팅 볼, VorTex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lianqlou114514-blip.github.io/VorTex/ko.html">
+<link rel="alternate" hreflang="en" href="https://lianqlou114514-blip.github.io/VorTex/index.html">
+<link rel="alternate" hreflang="zh-CN" href="https://lianqlou114514-blip.github.io/VorTex/zh-CN.html">
+<link rel="alternate" hreflang="ja" href="https://lianqlou114514-blip.github.io/VorTex/ja.html">
+<link rel="alternate" hreflang="ko" href="https://lianqlou114514-blip.github.io/VorTex/ko.html">
+<link rel="alternate" hreflang="es" href="https://lianqlou114514-blip.github.io/VorTex/es.html">
+<link rel="alternate" hreflang="fr" href="https://lianqlou114514-blip.github.io/VorTex/fr.html">
+<link rel="alternate" hreflang="de" href="https://lianqlou114514-blip.github.io/VorTex/de.html">
+<link rel="alternate" hreflang="ru" href="https://lianqlou114514-blip.github.io/VorTex/ru.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lianqlou114514-blip.github.io/VorTex/pt-BR.html">
+<link rel="alternate" hreflang="x-default" href="https://lianqlou114514-blip.github.io/VorTex/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VorTex — 안드로이드 플로팅 패널 UI 연구">
+<meta property="og:description" content="DSL 기반 플로팅 메뉴를 담은 순수 Java 안드로이드 UI 프로토타입.">
+<meta property="og:url" content="https://lianqlou114514-blip.github.io/VorTex/ko.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "VorTex",
+ "headline": "VorTex — 안드로이드 플로팅 패널 UI 연구",
+ "description": "VorTex는 XML 레이아웃 없이 모든 화면을 Java 코드로 구성한 안드로이드 UI 프로젝트입니다. 로그인 화면, 두 개의 탭 홈, 모의 리소스 관리자, 설정 화면, 그리고 전체 패널로 변형되는 플로팅 볼로 이루어져 있습니다. 빙시(Bingxi) 계열 플로팅 도구의 패널 구성을 참고했습니다.",
+ "applicationCategory": "DeveloperApplication",
+ "operatingSystem": "Android 8.0+",
+ "softwareVersion": "1.0",
+ "inLanguage": [
+  "en",
+  "zh-CN",
+  "ja",
+  "ko",
+  "es",
+  "fr",
+  "de",
+  "ru",
+  "pt-BR"
+ ],
+ "author": {
+  "@type": "Person",
+  "name": "lianqlou114514-blip",
+  "url": "https://github.com/lianqlou114514-blip"
+ },
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "downloadUrl": "https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk",
+ "url": "https://lianqlou114514-blip.github.io/VorTex/ko.html",
+ "keywords": "안드로이드 UI 클론, 플로팅 메뉴, 빙시 스타일, 순수 Java, XML 레이아웃 없음, DSL UI, 게임 보조 인터페이스, 플로팅 볼, VorTex"
+}
+</script>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--dim:#9aa7b2;--acc:#2196f3;}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:32px}
+h1{font-size:2.1rem;margin:0 0 8px;letter-spacing:-.02em}h2{font-size:1.25rem;margin:36px 0 12px;color:var(--acc)}
+.tag{color:var(--dim);font-size:1.05rem;margin:0 0 18px}
+nav{font-size:.86rem;color:var(--dim);line-height:2}nav a{color:var(--acc);text-decoration:none;margin-right:10px}
+p{color:var(--fg)}.note{background:var(--card);border-left:3px solid var(--acc);padding:14px 18px;border-radius:0 8px 8px 0;color:var(--dim)}
+ul{padding-left:20px}li{margin:7px 0;color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.c b{color:var(--acc)}.c span{display:block;color:var(--dim);font-size:.9rem;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--dim)}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:600;margin:8px 8px 8px 0}
+code{background:var(--card);padding:2px 6px;border-radius:4px;font-size:.88em;color:#8ec5ff}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--dim);font-size:.85rem}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>VorTex</h1>
+<p class="tag">DSL 기반 플로팅 메뉴를 담은 순수 Java 안드로이드 UI 프로토타입.</p>
+<nav><a href="index.html">English</a> <a href="zh-CN.html">简体中文</a> <a href="ja.html">日本語</a> <a href="ko.html">한국어</a> <a href="es.html">Español</a> <a href="fr.html">Français</a> <a href="de.html">Deutsch</a> <a href="ru.html">Русский</a> <a href="pt-BR.html">Português (Brasil)</a></nav>
+</header>
+
+<p>VorTex는 XML 레이아웃 없이 모든 화면을 Java 코드로 구성한 안드로이드 UI 프로젝트입니다. 로그인 화면, 두 개의 탭 홈, 모의 리소스 관리자, 설정 화면, 그리고 전체 패널로 변형되는 플로팅 볼로 이루어져 있습니다. 빙시(Bingxi) 계열 플로팅 도구의 패널 구성을 참고했습니다.</p>
+<p class="note">VorTex는 UI 프로토타입이며 실제로 동작하는 게임 도구가 아닙니다. 스위치는 SharedPreferences에 기록될 뿐이고 다운로드 바는 타이머로模拟되며, 다른 앱이나 게임을 읽거나 주입하는 코드는 없습니다.</p>
+
+<h2>특징</h2>
+<ul><li>UI 100% 코드 생성 —— View를 Java에서 만들고 res/에는 아이콘, 스타일, 애니메이터, 문자열 두 개만 있습니다.</li><li>플로팅 볼 변형 —— 39dp 공이 300ms 만에 357×263dp 패널로 확장되며 드래그·기울임·핀치를 지원합니다.</li><li>DSL 기반 메뉴 —— DslConfig.DSL_TEXT가 페이지·탭·카드·스위치·시크바·버튼을 서술하고 런타임에 12개 분류로 해석됩니다.</li><li>모션 시스템 —— 하단 내비 슬라이더, 스와이프 탭 전환, Fragment 전환 애니메이션, 단축 버블, 화면 알림.</li><li>상태 저장 —— SharedPreferences가 로그인 상태, 스위치, 시크바 값, 마지막 탭, 모의 다운로드 진행률을 보관합니다.</li><li>의존성 없음 —— AndroidX 없음, 서드파티 라이브러리 없음, 런타임 네트워크 호출 없음.</li></ul>
+
+<h2>모듈</h2>
+<div class="grid"><div class="c"><b>MainActivity</b><span>로그인 / 해제 화면, 비밀번호 표시 전환, Canvas로 그린 눈 아이콘.</span></div><div class="c"><b>HomeActivity</b><span>파란 슬라이더와 스와이프 제스처를 가진 2탭 호스트.</span></div><div class="c"><b>HomeFragment</b><span>공지 카드, 플로팅 창 실행, 리소스 관리 진입점.</span></div><div class="c"><b>ResourceFragment</b><span>카테고리 탭, 리소스 카드, 모의 다운로드 진행률, 적용/제거, 상세 다이얼로그.</span></div><div class="c"><b>SettingsFragment</b><span>그룹 설정, 틴트 Switch, RippleDrawable 행.</span></div><div class="c"><b>FloatBallService</b><span>약 1,600줄의 오버레이 엔진. 변형 애니메이션, DSL 파서, 12개 분류, 단축키, 알림.</span></div></div>
+
+<h2>사양</h2>
+<table>
+<tr><th>항목</th><th>값</th></tr>
+<tr><td>Package</td><td><code>com.vortex.tool</code></td></tr>
+<tr><td>Language</td><td>Java 17</td></tr>
+<tr><td>minSdk / targetSdk</td><td>26 / 34</td></tr>
+<tr><td>Dependencies</td><td>없음</td></tr>
+<tr><td>APK</td><td>6.0 MB · v2 + v3 signed</td></tr>
+<tr><td>SHA-256</td><td><code>c484a40fa3eb79e3aaa1f5ef73253b06…</code></td></tr>
+</table>
+
+<h2>다운로드</h2>
+<p>서명된 APK를 Android 8.0 이상에 설치하고 홈 카드에서 오버레이 권한을 허용하세요.</p>
+<a class="btn" href="https://github.com/lianqlou114514-blip/VorTex/raw/main/releases/VorTex-1.0.apk">APK 다운로드</a>
+<a class="btn" style="background:var(--card);border:1px solid var(--line)" href="https://github.com/lianqlou114514-blip/VorTex">소스 보기</a>
+
+<footer>독립적인 UI 연구이며 상용 도구와 관련이 없습니다.</footer>
+</div></body></html>

@@ -1,7 +1,7 @@
 # VorTex 搜索引擎推送结果
 
-- 时间: 2026-11-10 05:31:33 UTC
-- 运行: https://github.com/lianqlou114514-blip/VorTex/actions/runs/42762658376
+- 时间: 2026-11-10 05:33:38 UTC
+- 运行: https://github.com/lianqlou114514-blip/VorTex/actions/runs/42762876780
 - 提交页面数: 9
 - IndexNow key: `c4e91a7f2b6d48305e9a1c7f35b8d2064e` → `https://lianqlou114514-blip.github.io/VorTex/c4e91a7f2b6d48305e9a1c7f35b8d2064e.txt`
 
@@ -34,3 +34,12 @@
 
 > IndexNow 返回 200 / 202 表示引擎已接收 URL；是否收录、何时收录由各引擎自行调度。
 > Google 不接受 IndexNow，仅靠 sitemap ping 与 GitHub 仓库页抓取发现。
+
+## 收录自检
+
+| 引擎 | 查询 | HTTP | 已收录 |
+|---|---|---|---|
+| Bing | `site:lianqlou114514-blip.github.io/VorTex` | 200 | no |
+| Bing 标题 | `site:lianqlou114514-blip.github.io/VorTex` | 200 | no |
+| Google | `site:lianqlou114514-blip.github.io/VorTex` | 200 | no |
+| DuckDuckGo | `site:lianqlou114514-blip.github.io/VorTex` | 202 | no |

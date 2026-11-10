@@ -81,6 +81,28 @@ log('')
 log('> IndexNow 返回 200 / 202 表示引擎已接收 URL；是否收录、何时收录由各引擎自行调度。')
 log('> Google 不接受 IndexNow，仅靠 sitemap ping 与 GitHub 仓库页抓取发现。')
 
+
+# ── 收录自检（从 runner 直查搜索引擎结果页）────────────────────
+import urllib.parse, re
+SITE = 'lianqlou114514-blip.github.io/VorTex'
+log('')
+log('## 收录自检')
+log('')
+log('| 引擎 | 查询 | HTTP | 已收录 |')
+log('|---|---|---|---|')
+probes = [
+    ('Bing', 'https://www.bing.com/search?q=' + urllib.parse.quote(f'site:{SITE}')),
+    ('Bing 标题', 'https://www.bing.com/search?q=' + urllib.parse.quote('"VorTex — Android Floating-Panel UI Study"')),
+    ('Google', 'https://www.google.com/search?q=' + urllib.parse.quote(f'site:{SITE}')),
+    ('DuckDuckGo', 'https://html.duckduckgo.com/html/?q=' + urllib.parse.quote(f'site:{SITE}')),
+]
+for name, u in probes:
+    code, body = call('GET', u, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36'})
+    # 结果链接中真实出现我们的 URL 才算收录（查询词本身会出现在页面里，不能算）
+    indexed = bool(re.search(r'href="https?://' + re.escape(SITE), body))
+    log(f'| {name} | `site:{SITE}` | {code} | {"YES" if indexed else "no"} |')
+
+
 report = '\n'.join(lines) + '\n'
 
 # 写回仓库，供沙箱经 api.github.com 读取

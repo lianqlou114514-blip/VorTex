@@ -14,80 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Push URLs and record responses
-        run: |
-          set +e
-          BASE="https://lianqlou114514-blip.github.io/VorTex"
-          KEY="c4e91a7f2b6d48305e9a1c7f35b8d2064e"
-          REPO_API="https://api.github.com/repos/lianqlou114514-blip/VorTex/contents/seo-status.md"
-          AUTH="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"
-          R=/tmp/report.md
-          echo "# VorTex 搜索引擎推送结果" > $R
-          echo "" >> $R
-          echo "- 时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $R
-          echo "- 运行: ${{ github.server_url }}/{{ github.repository }}/actions/runs/{{ github.run_id }}" >> $R
-          echo "- 页面数: 9" >> $R
-          echo "" >> $R
-          echo "```" >> $R
-          cat > /tmp/payload.json <<JSON
-          {
-            "host": "lianqlou114514-blip.github.io",
-            "key": "$KEY",
-            "keyLocation": "$BASE/$KEY.txt",
-            "urlList": [
-                        "https://lianqlou114514-blip.github.io/VorTex/",
-              "https://lianqlou114514-blip.github.io/VorTex/zh-CN.html",
-              "https://lianqlou114514-blip.github.io/VorTex/ja.html",
-              "https://lianqlou114514-blip.github.io/VorTex/ko.html",
-              "https://lianqlou114514-blip.github.io/VorTex/es.html",
-              "https://lianqlou114514-blip.github.io/VorTex/fr.html",
-              "https://lianqlou114514-blip.github.io/VorTex/de.html",
-              "https://lianqlou114514-blip.github.io/VorTex/ru.html",
-              "https://lianqlou114514-blip.github.io/VorTex/pt-BR.html"
-            ]
-          }
-          JSON
-          echo "--- payload ---" >> $R
-          cat /tmp/payload.json >> $R
-          for EP in \
-              https://api.indexnow.org/indexnow \
-              https://www.bing.com/indexnow \
-              https://yandex.com/indexnow \
-              https://search.seznam.cz/indexnow ; do
-            echo "" >> $R
-            echo "=== POST $EP" >> $R
-            CODE=$(curl -sS -m 30 -o /tmp/out -w '%{http_code}' \
-              -X POST -H 'Content-Type: application/json; charset=utf-8' \
-              -H 'User-Agent: VorTex-IndexNow/1.0' \
-              --data-binary @/tmp/payload.json "$EP")
-            echo "HTTP $CODE" >> $R
-            head -c 400 /tmp/out >> $R; echo "" >> $R
-          done
-          echo "" >> $R; echo "=== sitemap pings" >> $R
-          for P in \
-              "https://www.google.com/ping?sitemap=$BASE/sitemap.xml" \
-              "https://www.bing.com/ping?sitemap=$BASE/sitemap.xml" ; do
-            CODE=$(curl -sS -m 30 -o /tmp/out -w '%{http_code}' "$P")
-            echo "HTTP $CODE  $P" >> $R
-          done
-          echo "" >> $R; echo "=== public key / site" >> $R
-          CODE=$(curl -sS -m 30 -o /tmp/key -w '%{http_code}' "$BASE/$KEY.txt")
-          echo "key file: HTTP $CODE  content=$(head -c 60 /tmp/key)" >> $R
-          CODE=$(curl -sS -m 30 -o /dev/null -w '%{http_code}' "$BASE/")
-          echo "site root: HTTP $CODE" >> $R
-          echo "```" >> $R
-          echo "" >> $R
-          echo "IndexNow 返回 200/202 表示已接收 URL；收录由各引擎自行调度。" >> $R
-          cat $R
-          # 写回仓库，供沙箱经 API 读取（seo-status.md 不在 docs/**，不会循环触发）
-          B64=$(base64 -w0 $R)
-          SHA=$(curl -sS -m 30 -H "$AUTH" "$REPO_API" | grep -o '"sha": *"[^"]*"' | head -1 | cut -d'"' -f4)
-          if [ -n "$SHA" ]; then
-            curl -sS -m 30 -X PUT -H "$AUTH" -H 'Content-Type: application/json' \
-              -d "{\"message\":\"Update SEO submission report\",\"content\":\"$B64\",\"branch\":\"main\",\"sha\":\"$SHA\"}" \
-              "$REPO_API" -o /tmp/put.json -w 'report PUT HTTP %{http_code}\n'
-          else
-            curl -sS -m 30 -X PUT -H "$AUTH" -H 'Content-Type: application/json' \
-              -d "{\"message\":\"Add SEO submission report\",\"content\":\"$B64\",\"branch\":\"main\"}" \
-              "$REPO_API" -o /tmp/put.json -w 'report PUT HTTP %{http_code}\n'
-          fi
+      - uses: actions/checkout@v4
+      - name: Submit URLs to search engines
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 tools/seo_submit.py

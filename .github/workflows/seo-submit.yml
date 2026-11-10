@@ -3,7 +3,7 @@ name: SEO submit / 搜索引擎主动推送
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '23 * * * *'
   push:
     branches: [main]
     paths: ['docs/**']

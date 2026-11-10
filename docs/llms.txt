@@ -1,0 +1,29 @@
+# VorTex
+
+> A pure-Java Android floating-panel UI study (Bingxi / 冰昔 style). No XML layouts, no dependencies. Every screen is built in code, with a DSL-driven 12-category overlay menu.
+
+Project: https://github.com/lianqlou114514-blip/VorTex
+Site: https://lianqlou114514-blip.github.io/VorTex/
+Signed APK: https://github.com/lianqlou114514-blip/VorTex/blob/main/releases/VorTex-1.0.apk
+Release: https://github.com/lianqlou114514-blip/VorTex/releases/tag/v1.0
+Sitemap: https://lianqlou114514-blip.github.io/VorTex/sitemap.xml
+
+## Documentation by language
+
+- [English](https://lianqlou114514-blip.github.io/VorTex/index.html)
+- [简体中文](https://lianqlou114514-blip.github.io/VorTex/zh-CN.html)
+- [日本語](https://lianqlou114514-blip.github.io/VorTex/ja.html)
+- [한국어](https://lianqlou114514-blip.github.io/VorTex/ko.html)
+- [Español](https://lianqlou114514-blip.github.io/VorTex/es.html)
+- [Français](https://lianqlou114514-blip.github.io/VorTex/fr.html)
+- [Deutsch](https://lianqlou114514-blip.github.io/VorTex/de.html)
+- [Русский](https://lianqlou114514-blip.github.io/VorTex/ru.html)
+- [Português (Brasil)](https://lianqlou114514-blip.github.io/VorTex/pt-BR.html)
+
+## Key facts
+
+- Package: com.vortex.tool · Java 17 · minSdk 26 / targetSdk 34 · v1.0
+- Floating ball 39dp morphs into 357x263dp panel in 300ms (ValueAnimator)
+- DslConfig.DSL_TEXT is parsed at runtime into 12 menu categories
+- State via SharedPreferences; downloads are simulated; zero runtime network calls
+- Signed with APK Signature Scheme v2 + v3

@@ -2,6 +2,8 @@ name: SEO submit / 搜索引擎主动推送
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
   push:
     branches: [main]
     paths: ['docs/**']
@@ -15,7 +17,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Submit URLs to search engines
+      - name: Submit URLs and probe indexing
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

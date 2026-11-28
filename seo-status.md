@@ -1,7 +1,7 @@
 # VorTex 搜索引擎推送结果
 
-- 时间: 2026-11-28 11:54:17 UTC
-- 运行: https://github.com/lianqlou114514-blip/VorTex/actions/runs/46142047485
+- 时间: 2026-11-28 20:11:57 UTC
+- 运行: https://github.com/lianqlou114514-blip/VorTex/actions/runs/46185110545
 - 提交页面数: 9
 - IndexNow key: `c4e91a7f2b6d48305e9a1c7f35b8d2064e` → `https://lianqlou114514-blip.github.io/VorTex/c4e91a7f2b6d48305e9a1c7f35b8d2064e.txt`
 
@@ -16,7 +16,7 @@
 | `https://www.google.com/ping?sitemap=https://lianqlou114514-blip.github.io/VorTex/sitemap.xml` | GET | 404 | <HTML> <HEAD> <TITLE>Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitema |
 | `https://www.bing.com/ping?sitemap=https://lianqlou114514-blip.github.io/VorTex/sitemap.xml` | GET | 410 |  |
 | `key file` | GET | 200 | c4e91a7f2b6d48305e9a1c7f35b8d2064e  |
-| `site root` | GET | 200 | <!DOCTYPE html> <html lang="en" dir="ltr"> <head> <meta charset="utf-8"> <meta name="viewport" content="width= |
+| `site root` | GET | 503 |  <!DOCTYPE html> <!--  Hello future GitHubber! I bet you're here to remove those nasty inline styles, DRY up t |
 | `sitemap` | GET | 200 | <?xml version="1.0" encoding="UTF-8"?> <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"         xml |
 | `llms.txt` | GET | 200 | # VorTex  > A pure-Java Android floating-panel UI study (Bingxi / 冰昔 style). No XML layouts, no dependencies.  |
 
